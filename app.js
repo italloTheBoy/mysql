@@ -1,0 +1,23 @@
+require('dotenv').config()
+const path = require('path')
+const hbs = require('express-handlebars')
+const express = require('express')
+
+// Configuration
+const app = express()
+
+app.use(express.static(path.join(__dirname, 'public')))
+
+app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
+
+app.engine('handlebars', hbs.engine())
+app.set('view engine', 'handlebars')
+
+// Routes
+const router = require('./routes/router')
+app.use(router)
+
+// Listening
+const port = process.env.PORT || 3000
+app.listen(port, () => console.log(`Running in http://localhost:${port}`))
