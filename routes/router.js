@@ -3,7 +3,7 @@ const router = Router()
 
 
 const home = require('./home')
-app.use(home)
+router.use(home)
 
 
 module.exports = router
