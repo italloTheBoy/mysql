@@ -1,5 +1,5 @@
 require('dotenv').config()
-const mysql = require('mysql')
+const db = require('./model/db')
 const path = require('path')
 const hbs = require('express-handlebars')
 const express = require('express')
@@ -15,12 +15,7 @@ app.use(express.json())
 app.engine('handlebars', hbs.engine())
 app.set('view engine', 'handlebars')
 
-const db = mysql.createConnection({
-  host:     process.env.DB_HOST,
-  user:     process.env.DB_USER,
-  password: process.env.DB_PASS,
-  database: process.env.DB_NAME,
-})
+
 
 // Routes
 const router = require('./routes/router')
