@@ -1,0 +1,11 @@
+<main class="container w-50 p-3 card mt-3 text-center">
+  <h1>{{book.title}}</h1> <hr>
+  <p>Este livro possui {{book.pages}} paginas</p>
+</main>
+
+<footer class="container w-50 text-end">
+  <small>
+    <a href="/book/edit/{{book.id}}">Editar</a> |
+    <a href="/book/delete/{{book.id}}">Deletar</a>
+  </small>
+</footer>

@@ -1,0 +1,16 @@
+<header class="container">
+  <h1>Lista de Livros</h1>
+</header>
+
+{{#if book}}
+  <main class="container card mt-2">
+    {{#each book}}  
+      <b>{{this.id}} - <a href="book/search/{{this.id}}">{{this.title}}</a></b> <hr>
+    {{/each}}
+  </main>
+{{else}}
+  <main class="container card mt-2">
+    <h1>Nemhum livro foi encontrado</h1> 
+    <p>- Tente novamente mais tarde</p>
+  </main>
+{{/if}}

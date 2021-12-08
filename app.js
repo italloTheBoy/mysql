@@ -15,8 +15,6 @@ app.use(express.json())
 app.engine('handlebars', hbs.engine())
 app.set('view engine', 'handlebars')
 
-
-
 // Routes
 const router = require('./routes/router')
 app.use(router)

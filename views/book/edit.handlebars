@@ -1,20 +1,25 @@
-<form class="container card mt-2" action="/book/insert" method="post">
+<form class="container card mt-2" action="/book/edit" method="post">
   <fieldset>
     <legend class="form-title">Inserir Livro</legend> <hr>
+
+    <input type="hidden" name="id" value="{{book.id}}">
 
     <label for="title" class="form-label">Titulo</label>
     <input 
       type="text" 
       class="form-control" 
+      value="{{book.title}}" 
       placeholder="Insira o titulo do livro" 
       name="title" 
       id="title" 
       required> 
 
+
     <label for="pages" class="form-label">Titulo</label>
     <input 
       type="number" 
       class="form-control" 
+      value="{{book.pages}}" 
       placeholder="Insira o numero de paginas" 
       name="pages" 
       id="pages" 

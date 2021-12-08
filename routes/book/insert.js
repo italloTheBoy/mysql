@@ -8,7 +8,7 @@ router.post('/book/insert', (req, res) => {
 
   try {
     db.query(`INSERT INTO books (title, pages) VALUES ('${title}', ${pages});`)
-    res.status(200).redirect('/')
+    res.status(200).redirect('/book')
 
   } catch (err) { console.error(err) }
 })
