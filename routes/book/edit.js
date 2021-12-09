@@ -22,11 +22,11 @@ router.get('/book/edit/:id', (req, res) => {
   const query = `SELECT * FROM books WHERE ??=?;`
   const params = ['id', id]
 
-  try {
-    db.query(query, params)
-    res.status(200).render('book/edit', { book: book[0]})
+  db.query(query, params , (err, book) => {
+    if (err) throw console.error(err)
     
-  } catch (err) {throw console.error(err)}
+    res.status(200).render('book/edit', { book: book[0]})
+  })
 })
 
 

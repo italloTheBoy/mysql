@@ -9,11 +9,11 @@ router.get('/book/delete/:id', (req, res) => {
   const query = `DELETE FROM books WHERE ??=?;`
   const params = ['id', id]
 
-  try {
-    db.query(query, params)
-    res.status(200).redirect('/book')
+  db.query(query, params , (err, book) => {
+    if (err) throw console.error(err)
 
-  } catch (err) {throw console.error(err)}
+    res.status(200).redirect('/book')
+  })
 })
 
 

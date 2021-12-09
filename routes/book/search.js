@@ -9,11 +9,12 @@ router.get('/book/search/:id', (req, res) => {
   const query = `SELECT * FROM books WHERE ?? = ?;` 
   const params = ['id', id]
 
-  try {
-    db.query(query, params)
+  db.query(query, params, (err, book) => {
+    if (err) throw console.error(err)
+  
     res.status(200).render('book/search', { book: book[0] })
+  })
 
-  } catch (err) {throw console.error(err)}
 })
 
 

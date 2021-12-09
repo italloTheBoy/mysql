@@ -8,11 +8,12 @@ router.get('/book', (req, res) => {
   const query = 'SELECT ??, ?? FROM books;'
   const params = ['title', 'id']
 
-  try {
-    db.query(query, params)
-    res.status(200).render('book/book', { book })
+  db.query(query, params, (err, book) => {
+    if (err) throw console.error(err)
 
-  } catch (err) {throw console.error(err)}
+    res.status(200).render('book/book', { book })
+  })
+
 })
 
 
