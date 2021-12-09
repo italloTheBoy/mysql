@@ -12,7 +12,7 @@ router.get('/book', (req, res) => {
     db.query(query, params)
     res.status(200).render('book/book', { book })
 
-  }catch (err) {throw console.error(err)}
+  } catch (err) {throw console.error(err)}
 })
 
 

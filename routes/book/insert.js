@@ -6,8 +6,8 @@ const router = Router()
 router.post('/book/insert', (req, res) => {
   const { title, pages } = req.body
 
-  const query = `INSERT INTO ?? (??, ??) VALUES (?, ?);`
-  const params = ['books', 'title', 'pages', title, pages]
+  const query = `INSERT INTO books (??, ??) VALUES (?, ?);`
+  const params = ['title', 'pages', title, pages]
 
   try {
     db.query(query, params)

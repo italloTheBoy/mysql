@@ -19,14 +19,14 @@ router.post('/book/edit', (req, res) => {
 router.get('/book/edit/:id', (req, res) => {
   const {id} = req.params
   
-  const query = `SELECT * FROM ?? WHERE ??=?;`
-  const params = ['books', 'id', id]
+  const query = `SELECT * FROM books WHERE ??=?;`
+  const params = ['id', id]
 
   try {
     db.query(query, params)
     res.status(200).render('book/edit', { book: book[0]})
     
-  }catch (err) {throw console.error(err)}
+  } catch (err) {throw console.error(err)}
 })
 
 

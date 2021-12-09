@@ -6,8 +6,8 @@ const router = Router()
 router.get('/book/search/:id', (req, res) => {
   const {id} = req.params
 
-  const query = `SELECT * FROM ?? WHERE ?? = ?;` 
-  const params = ['books', 'id', id]
+  const query = `SELECT * FROM books WHERE ?? = ?;` 
+  const params = ['id', id]
 
   try {
     db.query(query, params)
