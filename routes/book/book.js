@@ -5,7 +5,10 @@ const router = Router()
 
 router.get('/book', (req, res) => {
 
-  db.query('SELECT title, id FROM books', (err, book) => {
+  const query = 'SELECT ??, ?? FROM books;'
+  const params = ['title', 'id']
+
+  db.query(query, params, (err, book) => {
     if (err) throw console.error(err)
 
     res.status(200).render('book/book', { book })

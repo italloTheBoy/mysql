@@ -6,7 +6,10 @@ const router = Router()
 router.post('/book/edit', (req, res) => {
   const {id, title, pages} = req.body
 
-  db.query(`UPDATE books SET title='${title}', pages=${pages} WHERE id='${id}'`,(err) => {
+  const query = `UPDATE ?? SET ??=?, ??=? WHERE ??=?;`
+  const params = ['books', 'title', title, 'pages', pages, 'id', id]
+
+  db.query(query, params,(err) => {
     if (err) console.error(err)
   })
 
@@ -14,11 +17,16 @@ router.post('/book/edit', (req, res) => {
 })
 
 router.get('/book/edit/:id', (req, res) => {
-  db.query(`SELECT * FROM books WHERE id=${req.params.id};`,(err, book) => {
-    if (err) throw console.error(err)
+  const {id} = req.params
+  
+  const query = `SELECT * FROM ?? WHERE ??=?;`
+  const params = ['books', 'id', id]
 
+  try {
+    db.query(query, params)
     res.status(200).render('book/edit', { book: book[0]})
-  })
+    
+  }catch (err) {throw console.error(err)}
 })
 
 
