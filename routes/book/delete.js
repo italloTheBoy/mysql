@@ -4,11 +4,16 @@ const router = Router()
 
 
 router.get('/book/delete/:id', (req, res) => {
-  db.query(`DELETE FROM books WHERE id=${req.params.id}`, (err) => {
-    if (err) throw console.error(err)
+  const {id} = req.params
 
+  const query = `DELETE FROM ?? WHERE ??=?;`
+  const params = ['books', 'id', id]
+
+  try {
+    db.query(query, params)
     res.status(200).redirect('/book')
-  })
+
+  } catch (err) {throw console.error(err)}
 })
 
 
