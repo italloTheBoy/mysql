@@ -20,9 +20,5 @@ const router = require('./routes/router')
 app.use(router)
 
 //Listening
-db.connect((err) => {
-  if (err) return console.error(err)
-
-  const port = process.env.PORT || 3000
-  app.listen(port, () => console.log(`Running in http://localhost:${port}`))
-})
+const port = process.env.PORT || 3000
+app.listen(port, () => console.log(`Running in http://localhost:${port}`))
